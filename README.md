@@ -1,20 +1,37 @@
 ### Esboço do projeto para gerenciar clientes e serviços prestados
 
-### Instruções para rodar o projeto
-# Cria a env
-# python -m venv {nome da env}
+### Comandos úteis
 
-# Ativa a env
-# source {nome da env}/bin/activate
-
-# Desativa a env
-# deactivate
+```bash
 
 # Iniciar o projeto
-# python manage.py runserver
+$ python manage.py runserver
 
-# Nova venv
-# python -m venv venv
+# Criar o banco de dados
+$ python manage.py migrate
+
+# Criar um super usuário
+$ python manage.py createsuperuser
+
+# Compilar as mensagens
+$ python manage.py compilemessages
+
+# Criar a env
+$ python -m venv venv
+
+# Ativar a env
+$ source {nome da env}/bin/activate
+
+# Desativar a env
+$ deactivate
+
+# Criar arquivo requirements.txt
+$ pip freeze > requirements.txt
+
+# Mandar dependências para o arquivo requirements.txt
+$ pip freeze > requirements.txt
 
 # Instalar as dependências
-# pip freeze > requirements.txt
+$ pip install -r requirements.txt
+
+```
