@@ -9,7 +9,7 @@ def dashboard_callback(request, context):
     context.update(
         {
             # "sample": "example",  # this will be injected into templates/admin/index.html
-            "sample": "templates/admin/index.html",  # this will be injected into templates/admin/index.html
+            "sample": "templates/admin/index.html",
         }
     )
     return context
