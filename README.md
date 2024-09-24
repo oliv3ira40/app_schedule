@@ -34,4 +34,7 @@ $ pip freeze > requirements.txt
 # Instalar as dependências
 $ pip install -r requirements.txt
 
+# Link para a documentação do unfold:
+[Git Django Unfold](https://github.com/unfoldadmin/django-unfold)
+
 ```
