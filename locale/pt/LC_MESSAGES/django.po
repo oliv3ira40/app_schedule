@@ -69,3 +69,6 @@ msgstr "Você foi desconectado com sucesso da administração"
 
 msgid "Filter results"
 msgstr "Filtrar resultados"
+
+msgid "Raw passwords are not stored, so there is no way to see this user’s password, but you can change the password using <a href=\"{}\" class=\"text-primary-600 dark:text-primary-500\">this form</a>."
+msgstr "Senhas em texto não são armazenadas, então não há como ver a senha deste usuário, mas você pode alterá-la usando <a href=\"{}\" class=\"text-primary-600 dark:text-primary-500\">este formulário</a>."
