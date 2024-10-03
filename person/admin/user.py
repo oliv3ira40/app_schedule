@@ -17,7 +17,7 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
         return obj.groups.first()
     group_name.short_description = _('Grupo')
 
-    list_display = ('is_active', 'first_name', 'last_name', 'email', 'is_staff', 'is_superuser', 'group_name')
+    list_display = ('is_active', 'first_name', 'last_name', 'username', 'email', 'is_staff', 'is_superuser', 'group_name')
     list_filter = ('is_active', 'is_staff', 'is_superuser', 'groups')
     search_fields = ('first_name', 'last_name', 'email')
     ordering = ('is_active', 'first_name')
