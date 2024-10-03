@@ -1,4 +1,8 @@
 from django.db import models
+from datetime import date, timedelta
+from django.utils import formats
+from django.http import request
+from person.models.professional import Professional
 
 class Client(models.Model):
     name = models.CharField(max_length=200, verbose_name='Nome')
@@ -30,3 +34,45 @@ class Client(models.Model):
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
+
+    # Retorna os próximos aniversariantes dentro de um período de dias
+    def get_upcoming_birthdays(request):
+        current_user = request.user
+        if current_user.is_superuser: return {}
+        
+        professional = Professional.objects.get(id_user=current_user)
+        if not professional: return {}
+
+        # Data de hoje e limite de dias para buscar próximos aniversários
+        today = date.today()
+        days_ahead = 30  # Define quantos dias à frente você quer buscar os aniversariantes
+        date_limit = today + timedelta(days=days_ahead)
+        current_year = today.year
+        
+        # Buscar os aniversariantes dentro do período especificado
+        upcoming_birthdays = Client.objects.filter(
+            birth_date__month__gte=today.month,
+            birth_date__month__lte=date_limit.month,
+            id_professional=professional
+        ).order_by('birth_date')
+
+        for client in upcoming_birthdays:
+            client.age_at_next_birthday = current_year - client.birth_date.year
+            
+            client.email = client.email if client.email else '---'
+            if client.birth_date:
+                client.formt_birth_date = f'{client.birth_date.day} de {formats.date_format(client.birth_date, "F")} de {current_year}'
+            else:
+                client.formt_birth_date = '---'
+                client.age_at_next_birthday = '---'
+
+        return upcoming_birthdays
+
+    def get_count_clients_by_professional(request):
+        current_user = request.user
+        if current_user.is_superuser: return 0
+        
+        professional = Professional.objects.get(id_user=current_user)
+        if not professional: return 0
+
+        return Client.objects.filter(id_professional=professional).count()

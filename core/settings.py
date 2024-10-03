@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0bo4u+pq71(n2+%!@6w2f3tb#$^!j)@c0jmrg1$!rsi#*1(*m7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '147.79.82.119']
+ALLOWED_HOSTS = ['localhost', '147.79.82.119', '127.0.0.1']
 
 
 # Application definition
@@ -122,9 +122,9 @@ LANGUAGE_CODE = 'pt-BR'
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
 TIME_ZONE = 'America/Sao_Paulo'
-USE_I18N = True  # Ativa a internacionalização
-USE_L10N = True  # Ativa a formatação local (como datas e números)
-USE_TZ = True  # Ativa o suporte a timezones
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

@@ -8,7 +8,7 @@ class SessionInline(TabularInline):
     model = Session
     # tab = True
     extra = 0
-    # fields = ('date', 'status', 'id_package')
+    fields = ('date', 'status', 'description')
     # ordering = ('date',)
     # classes = ('collapse',)
 

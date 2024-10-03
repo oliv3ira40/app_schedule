@@ -14,132 +14,49 @@
     </h1>
 {% endblock %}
 
+{% load unfold %}
+
 {% block content %}
     <div class="flex flex-col lg:flex-row lg:gap-8">
         <div class="flex-grow">
-            
-
-
-            <div id="recent-actions-module" class="module bg-gray-50 rounded-md p-3 dark:bg-gray-800">
-                <h2 class="mb-3 font-semibold text-gray-900 dark:text-gray-100">
-                    Ações recentes
-                </h2>
-
-                <div class="action-list">
-                    <div class="overflow-x-auto lg:border lg:rounded-md lg:shadow-sm lg:dark:border-gray-800" data-simplebar="init" data-simplebar-auto-hide="false">
-                        <div class="simplebar-wrapper" style="margin: 0px;">
-                            <div class="simplebar-height-auto-observer-wrapper">
-                                <div class="simplebar-height-auto-observer"></div>
-                            </div>
-                            <div class="simplebar-content" style="padding: 0px;">
-                                <table id="result_list" class="block border-gray-200 border-spacing-none border-separate w-full lg:table">
-                                    <thead>
-                                        <tr>
-                                            <th class="align-middle font-semibold py-2 text-left text-gray-900 dark:text-gray-100 text-sm whitespace-nowrap action-checkbox-column lg:px-3 lg:w-10" scope="col">
-                                                <div class="flex items-center">
-                                                    <div class="text">
-                                                        
-                                                            
-                                                                <label class="flex flex-row items-center gap-2">
-                                                                    <input type="checkbox" name="action-toggle" id="action-toggle" aria-label="Select all objects on this page for an action" class="appearance-none bg-white block border border-gray-300 cursor-pointer h-4 relative rounded shadow-sm w-4 hover:border-gray-400 dark:bg-gray-700 dark:border-gray-500 dark:after:checked:text-white focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-primary-500 after:absolute after:content-['done'] after:!flex after:h-4 after:items-center after:justify-center after:leading-none after:material-symbols-outlined after:-ml-px after:-mt-px after:!text-sm after:text-white after:transition-all after:w-4 after:dark:text-gray-700 checked:bg-primary-600 checked:border-primary-600 checked:transition-all checked:hover:border-primary-600">
-                    
-                                                                    <span class="block font-normal text-gray-500 dark:text-gray-300 lg:hidden">
-                                                                        Select all rows
-                                                                    </span>
-                                                                </label>
-                                                            
-                                                        
-                                                    </div>
-                    
-                                                    
-                                                </div>
-                                            </th>
-                                            
-                                            <th class="align-middle font-semibold py-2 text-left text-gray-900 dark:text-gray-100 text-sm whitespace-nowrap sortable column-id_client hidden px-3 lg:table-cell" scope="col">
-                                                <div class="flex items-center">
-                                                    <div class="text">
-                                                        
-                                                            <a href="?o=1.6.5">
-                                                                Cliente
-                                                            </a>
-                                                        
-                                                    </div>
-                    
-                                                    
-                                                        
-                                                    
-                                                </div>
-                                            </th>
-                                        
-                                            <th class="align-middle font-semibold py-2 text-left text-gray-900 dark:text-gray-100 text-sm whitespace-nowrap sortable column-id_professional hidden px-3 lg:table-cell" scope="col">
-                                                <div class="flex items-center">
-                                                    <div class="text">
-                                                        
-                                                            <a href="?o=2.6.5">
-                                                                Profissional
-                                                            </a>
-                                                        
-                                                    </div>
-                    
-                                                    
-                                                        
-                                                    
-                                                </div>
-                                            </th>
-                                        
-                                            <th class="align-middle font-semibold py-2 text-left text-gray-900 dark:text-gray-100 text-sm whitespace-nowrap sortable column-id_service hidden px-3 lg:table-cell" scope="col">
-                                                <div class="flex items-center">
-                                                    <div class="text">
-                                                        
-                                                            <a href="?o=3.6.5">
-                                                                Serviço
-                                                            </a>
-                                                        
-                                                    </div>
-                    
-                                                    
-                                                        
-                                                    
-                                                </div>
-                                            </th>
-                                        
-                                            <th class="align-middle font-semibold py-2 text-left text-gray-900 dark:text-gray-100 text-sm whitespace-nowrap sortable column-value hidden px-3 lg:table-cell" scope="col">
-                                                <div class="flex items-center">
-                                                    <div class="text">
-                                                        
-                                                            <a href="?o=4.6.5">
-                                                                Valor
-                                                            </a>
-                                                        
-                                                    </div>
-                    
-                                                    
-                                                        
-                                                    
-                                                </div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                        
-                                    <tbody class="block lg:table-row-group">
-                                        <tr class="block border mb-3 rounded-md shadow-sm lg:table-row lg:border-none lg:mb-0 lg:shadow-none dark:border-gray-800">
-                                            <td class="action-checkbox align-middle flex items-center px-3 py-2 text-left text-sm before:block before:capitalize before:content-[attr(data-label)] before:font-semibold before:mr-auto before:text-gray-100 lg:before:hidden lg:border-t lg:border-gray-200 lg:table-cell dark:before:text-gray-100 dark:lg:border-gray-800" data-label="Select record"><input type="checkbox" name="_selected_action" value="3" class="appearance-none bg-white block border border-gray-300 cursor-pointer h-4 relative rounded shadow-sm w-4 hover:border-gray-400 dark:bg-gray-700 dark:border-gray-500 dark:after:checked:text-white focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-primary-500 after:absolute after:content-['done'] after:!flex after:h-4 after:items-center after:justify-center after:leading-none after:material-symbols-outlined after:-ml-px after:-mt-px after:!text-sm after:text-white after:transition-all after:w-4 after:dark:text-gray-700 checked:bg-primary-600 checked:border-primary-600 checked:transition-all checked:hover:border-primary-600 action-select" aria-label="Select record"></td>
-                                            <th class="field-id_client align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden px-3 py-2 text-left text-sm before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:font-semibold before:mr-auto before:text-gray-900 first:border-t-0 dark:text-gray-300 dark:before:text-gray-100 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 nowrap" data-label="Cliente"><a href="/admin/schedule/treatment/3/change/" class="">Um outro cliente só de zoas</a></th>
-                                            <td class="field-id_professional align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden px-3 py-2 text-left text-sm before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:font-semibold before:mr-auto before:text-gray-900 first:border-t-0 dark:text-gray-300 dark:before:text-gray-100 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 nowrap" data-label="Profissional">Profissional 1</td>
-                                            <td class="field-id_service align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden px-3 py-2 text-left text-sm before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:font-semibold before:mr-auto before:text-gray-900 first:border-t-0 dark:text-gray-300 dark:before:text-gray-100 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 nowrap" data-label="Serviço">Massagem prof 1</td>
-                                            <td class="field-value align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden px-3 py-2 text-left text-sm before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:font-semibold before:mr-auto before:text-gray-900 first:border-t-0 dark:text-gray-300 dark:before:text-gray-100 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800" data-label="Valor">200,00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+            <div class="flex flex-col lg:flex-row lg:gap-8">
+                {% component "unfold/components/card.html" with class="mb-4" %}
+                    <div class="flex-grow relative">
+                        <p class="leading-relaxed mb-0 text-sm">
+                            Atendimentos finalizados
+                        </p>
+                        <div class="font-semibold text-2xl text-font-important-light tracking-tight dark:text-font-important-dark">
+                            0
                         </div>
                     </div>
-                </div>
+                {% endcomponent %}
+                {% component "unfold/components/card.html" with class="mb-4" %}
+                    <div class="flex-grow relative">
+                        <p class="leading-relaxed mb-0 text-sm">
+                            Atendimentos agendados
+                        </p>
+                        <div class="font-semibold text-2xl text-font-important-light tracking-tight dark:text-font-important-dark">
+                            0
+                        </div>
+                    </div>
+                {% endcomponent %}
+                {% component "unfold/components/card.html" with class="mb-4" %}
+                    <div class="flex-grow relative">
+                        <p class="leading-relaxed mb-0 text-sm">
+                            Meus Clientes
+                        </p>
+                        <div class="font-semibold text-2xl text-font-important-light tracking-tight dark:text-font-important-dark">
+                            {{ count_clients_prof|default:0 }}
+                        </div>
+                    </div>
+                {% endcomponent %}
             </div>
 
-
-
+            {% component "unfold/components/card.html" with title="Próximos Aniversariantes" class="mb-4" %}
+                {% component "unfold/components/table.html" with table=upcoming_birthdays_table card_included=1 striped=1 %}{% endcomponent %}
+            {% endcomponent %}
         </div>
+
         <!-- <div class="flex-grow">
             {% include "unfold/helpers/app_list_default.html" %}
         </div> -->
