@@ -35,15 +35,126 @@
     </div>
 
     <div class="flex flex-col lg:flex-row lg:gap-8">
-        {% component "unfold/components/card.html" with title="Próximos Agendamentos" class="mb-4" %}
-            {% component "unfold/components/table.html" with table=upcoming_appointments_table card_included=1 striped=1 %}{% endcomponent %}
-        {% endcomponent %}
-        <!-- <span class="inline-block font-semibold leading-normal px-2 py-1 rounded text-xxs uppercase whitespace-nowrap bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-400">
-            Last 7 days
-        </span> -->
-        
-        {% component "unfold/components/card.html" with title="Próximos Aniversariantes" class="mb-4" %}
-            {% component "unfold/components/table.html" with table=upcoming_birthdays_table card_included=1 striped=1 %}{% endcomponent %}
-        {% endcomponent %}
+        <div class="border flex flex-col flex-grow overflow-hidden p-6 relative rounded-md shadow-sm dark:border-gray-800 mb-4">
+            <h2 class="border-b font-semibold mb-6 -mt-2 -mx-6 pb-4 px-6 text-font-important-light dark:text-font-important-dark dark:border-gray-800">
+                Próximos Agendamentos
+            </h2>
+            <div class="flex-grow relative">
+                <div class="-m-6 overflow-x-auto lg:dark:border-gray-800">
+                    <table class="block border-gray-200 border-spacing-none border-separate w-full lg:table">
+                        <thead class="text-gray-900 dark:text-gray-100">
+                            <tr class="bg-gray-50 dark:bg-white/[.02]">
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Agendada para o dia
+                                </th>
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Tipo
+                                </th>
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Cliente
+                                </th>
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Serviço
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="block lg:table-row-group">
+                            {% if upcoming_appointments %}
+                                {% for appointment in upcoming_appointments %}
+                                    <tr class="block border-t lg:table-row lg:border-none lg:mb-0 lg:shadow-none dark:border-gray-800">
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Agendada para o dia">
+                                            {{ appointment.date }}
+                                        </td>
+                                    
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Tipo">
+                                            {% if appointment.type == 'Pacote' %}
+                                                <span class="inline-block font-semibold leading-normal px-2 py-1 rounded text-xxs uppercase whitespace-nowrap bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-300">
+                                                    Pacote
+                                                </span>
+                                            {% else %}
+                                                <span class="inline-block font-semibold leading-normal px-2 py-1 rounded text-xxs uppercase whitespace-nowrap bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300">
+                                                    Atendimento
+                                                </span>
+                                            {% endif %}
+                                        </td>
+                                    
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Cliente">
+                                            {{ appointment.client }}
+                                        </td>
+                                    
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Serviço">
+                                            {{ appointment.service }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr class="block border-t lg:table-row lg:border-none lg:mb-0 lg:shadow-none dark:border-gray-800">
+                                    <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Agendada para o dia">
+                                        Não há agendamentos futuros
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="border flex flex-col flex-grow overflow-hidden p-6 relative rounded-md shadow-sm dark:border-gray-800 mb-4">
+            <h2 class="border-b font-semibold mb-6 -mt-2 -mx-6 pb-4 px-6 text-font-important-light dark:text-font-important-dark dark:border-gray-800">
+                Próximos Aniversariantes
+            </h2>
+            <div class="flex-grow relative">
+                <div class="-m-6 overflow-x-auto lg:dark:border-gray-800">
+                    <table class="block border-gray-200 border-spacing-none border-separate w-full lg:table">
+                        <thead class="text-gray-900 dark:text-gray-100">
+                            <tr class="bg-gray-50 dark:bg-white/[.02]">
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Cliente
+                                </th>
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Telefone
+                                </th>
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Data do aniversário
+                                </th>
+                                <th class="align-middle font-semibold py-2 text-left text-sm whitespace-nowrap sortable column-description hidden px-3 lg:table-cell first:pl-6 last:pr-6">
+                                    Idade atual
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="block lg:table-row-group">
+                            {% if upcoming_birthdays %}
+                                {% for appointment in upcoming_birthdays %}
+                                    <tr class="block border-t lg:table-row lg:border-none lg:mb-0 lg:shadow-none dark:border-gray-800">
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Agendada para o dia">
+                                            {{ appointment.name }}
+                                        </td>
+                                    
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Tipo">
+                                            {{ appointment.phone }}
+                                        </td>
+                                    
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Cliente">
+                                            {{ appointment.formt_birth_date }}
+                                        </td>
+                                    
+                                        <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Serviço">
+                                            {{ appointment.age_at_next_birthday }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr class="block border-t lg:table-row lg:border-none lg:mb-0 lg:shadow-none dark:border-gray-800">
+                                    <td class="px-3 py-2 align-middle flex border-t border-gray-200 font-normal gap-4 min-w-0 overflow-hidden text-left before:flex before:capitalize before:content-[attr(data-label)] before:items-center before:mr-auto first:border-t-0 lg:before:hidden lg:first:border-t lg:py-3 lg:table-cell dark:border-gray-800 lg:first:pl-6 lg:last:pr-6" data-label="Agendada para o dia">
+                                        Não há agendamentos futuros
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
