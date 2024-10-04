@@ -37,4 +37,12 @@ $ pip install -r requirements.txt
 # Link para a documentação do unfold:
 [Git Django Unfold](https://github.com/unfoldadmin/django-unfold)
 
+# Reiniciar o gunicorn
+sudo systemctl restart gunicorn
+# Reiniar o nginx
+sudo systemctl restart nginx
+
+# Coletar arquivos estáticos
+python manage.py collectstatic --noinput
+
 ```
