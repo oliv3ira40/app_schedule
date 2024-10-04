@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'person',
     'schedule',
     'website',
+    'finances',
 ]
 
 MIDDLEWARE = [
