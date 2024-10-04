@@ -59,7 +59,7 @@ class Client(models.Model):
         for client in upcoming_birthdays:
             client.age_at_next_birthday = current_year - client.birth_date.year
             
-            client.email = client.email if client.email else '---'
+            client.phone = client.phone if client.phone else '---'
             if client.birth_date:
                 client.formt_birth_date = f'{client.birth_date.day} de {formats.date_format(client.birth_date, "F")} de {current_year}'
             else:

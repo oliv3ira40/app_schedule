@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from schedule.models import Package, Service
 from django.utils import timezone
+from person.models import Professional, Client
+from django.utils import timezone
 
 class Session(models.Model):
     date = models.DateTimeField(_("Data"), blank=False)
@@ -40,3 +42,29 @@ class Session(models.Model):
             session.service = Service.objects.get(id=session.package.id_service.id)
 
         return scheduled_sessions
+
+    def get_next_sessions_by_prof(request):
+        current_user = request.user
+        if current_user.is_superuser: return {}
+
+        professional = Professional.objects.get(id_user=current_user)
+        if not professional: return {}
+
+        next_sessions = Session.objects.filter(
+            id_package__id_professional=professional,
+            status='1'
+        ).order_by('date')
+
+        for session in next_sessions:
+            session.package = Package.objects.get(id=session.id_package.id)
+            if session.package.closed:
+                next_sessions.remove(session)
+                continue
+            
+            local_date = timezone.localtime(session.date)
+            session.date = local_date.strftime('%d/%m/%Y %H:%M')
+            session.client = Client.objects.get(id=session.package.id_client.id)
+            session.service = Service.objects.get(id=session.package.id_service.id)
+            session.type = 'Pacote'
+
+        return next_sessions

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from person.models.professional import Professional
 
 class Package(models.Model):
     id_client = models.ForeignKey(
@@ -32,3 +33,31 @@ class Package(models.Model):
 
     def __str__(self):
         return f'{self.id_service} do cliente {self.id_client}'
+
+    def get_count_fin_packages_by_prof(request):
+        current_user = request.user
+        if current_user.is_superuser: return {}
+
+        professional = Professional.objects.get(id_user=current_user)
+        if not professional: return {}
+
+        finished_packages = Package.objects.filter(
+            id_professional=professional,
+            closed=True
+        ).count()
+
+        return finished_packages
+    
+    def get_count_unfin_packages_by_prof(request):
+        current_user = request.user
+        if current_user.is_superuser: return {}
+
+        professional = Professional.objects.get(id_user=current_user)
+        if not professional: return {}
+
+        unfinished_packages = Package.objects.filter(
+            id_professional=professional,
+            closed=False
+        ).count()
+
+        return unfinished_packages
