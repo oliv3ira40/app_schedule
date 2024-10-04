@@ -25,6 +25,13 @@ class Client(models.Model):
         , null=True
         , blank=True
     )
+    id_indicator_by = models.ForeignKey(
+        'self'
+        , verbose_name='Indicado(a) por'
+        , on_delete=models.CASCADE
+        , null=True
+        , blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Data de Criação', null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Data de Atualização', null=True, blank=True)
 
