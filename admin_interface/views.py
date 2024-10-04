@@ -5,6 +5,13 @@ from operator import attrgetter
 
 # Create your views here.
 def dashboard_callback(request, context):
+    current_user = request.user
+    if current_user.is_superuser:
+        context.update(
+            {"sample": "templates/admin/index.html", "current_user": current_user}
+        )
+        return context
+
     upcoming_birthdays = Client.get_upcoming_birthdays(request)
     next_treatments = Treatment.get_next_treatments_by_prof(request)
     next_sessions = Session.get_next_sessions_by_prof(request)
@@ -28,6 +35,7 @@ def dashboard_callback(request, context):
         {
             # "sample": "example",  # this will be injected into templates/admin/index.html
             "sample": "templates/admin/index.html",
+            "current_user": current_user,
             "upcoming_birthdays_table": {
                 "headers": ["Cliente", 	"Telefone", "Data do aniversário", "Idade atual"],
                 "rows": [

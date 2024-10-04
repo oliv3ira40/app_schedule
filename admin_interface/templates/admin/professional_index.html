@@ -1,0 +1,49 @@
+{% load unfold %}
+
+<div class="flex-grow">
+    <div class="flex flex-col lg:flex-row lg:gap-8">
+        {% component "unfold/components/card.html" with class="mb-4" %}
+            <div class="flex-grow relative">
+                <p class="leading-relaxed mb-0 text-sm">
+                    Atendimentos e pacotes finalizados
+                </p>
+                <div class="font-semibold text-2xl text-font-important-light tracking-tight dark:text-font-important-dark">
+                    {{ count_finished_services|default:0 }}
+                </div>
+            </div>
+        {% endcomponent %}
+        {% component "unfold/components/card.html" with class="mb-4" %}
+            <div class="flex-grow relative">
+                <p class="leading-relaxed mb-0 text-sm">
+                    Atendimentos e pacotes não finalizados
+                </p>
+                <div class="font-semibold text-2xl text-font-important-light tracking-tight dark:text-font-important-dark">
+                    {{ count_unfinished_services|default:0 }}
+                </div>
+            </div>
+        {% endcomponent %}
+        {% component "unfold/components/card.html" with class="mb-4" %}
+            <div class="flex-grow relative">
+                <p class="leading-relaxed mb-0 text-sm">
+                    Clientes Registrados
+                </p>
+                <div class="font-semibold text-2xl text-font-important-light tracking-tight dark:text-font-important-dark">
+                    {{ count_clients_prof|default:0 }}
+                </div>
+            </div>
+        {% endcomponent %}
+    </div>
+
+    <div class="flex flex-col lg:flex-row lg:gap-8">
+        {% component "unfold/components/card.html" with title="Próximos Agendamentos" class="mb-4" %}
+            {% component "unfold/components/table.html" with table=upcoming_appointments_table card_included=1 striped=1 %}{% endcomponent %}
+        {% endcomponent %}
+        <!-- <span class="inline-block font-semibold leading-normal px-2 py-1 rounded text-xxs uppercase whitespace-nowrap bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-400">
+            Last 7 days
+        </span> -->
+        
+        {% component "unfold/components/card.html" with title="Próximos Aniversariantes" class="mb-4" %}
+            {% component "unfold/components/table.html" with table=upcoming_birthdays_table card_included=1 striped=1 %}{% endcomponent %}
+        {% endcomponent %}
+    </div>
+</div>

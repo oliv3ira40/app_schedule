@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        img {
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: none;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            animation: shake 0.3s;
+            background-color: #0056b3;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 id="message">kkk Nem tem nada aqui</h3>
+        <img id="gif" src="https://media.tenor.com/07m1QOxv-dIAAAAM/m%C3%A1quina-produtiva075.gif" alt="Máquina produtiva" />
+        <a id="link" href="admin">clica aqui ó</a>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            // Troca a mensagem após 2 segundos
+            document.getElementById('message').textContent = 'Zuera kkk';
+
+            // Remove o GIF e a mensagem após 2 segundos
+            document.getElementById('gif').style.display = 'none';
+
+            // Exibe o link
+            document.getElementById('link').style.display = 'inline-block';
+        }, 4000);
+    </script>
+</body>
+</html>
