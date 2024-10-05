@@ -8,9 +8,9 @@ UNFOLD = {
     "SHOW_VIEW_ON_SITE": False,
     "DASHBOARD_CALLBACK": "admin_interface.views.dashboard_callback",
     "STYLES": [
-        lambda request: static("css/main.css"),
+        lambda request: static("css/admin_interface.min.css"),
     ],
     "SCRIPTS": [
-        # lambda request: static("js/unfold-translates.js"),
+        lambda request: static("js/admin_interface.min.js"),
     ],
 }
