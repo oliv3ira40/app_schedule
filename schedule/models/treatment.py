@@ -26,6 +26,7 @@ class Treatment(models.Model):
     date = models.DateTimeField(verbose_name='Data do atendimento', null=True, blank=True)
     LIST_STATUS = ( ('1', 'Agendado'), ('2', 'Concluído'), ('3', 'Cancelado') )
     status = models.CharField(_("Status"), max_length=1, choices=LIST_STATUS, default='1', blank=False)
+    description = models.TextField(_("Descrição"), blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Atualizado em')
     

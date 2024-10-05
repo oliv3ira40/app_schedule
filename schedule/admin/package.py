@@ -3,14 +3,8 @@ from schedule.models import Package, Service, Session
 from person.models import Professional, Client
 from unfold.admin import ModelAdmin, TabularInline
 from django.utils.translation import gettext_lazy as _
-
-class SessionInline(TabularInline):
-    model = Session
-    # tab = True
-    extra = 0
-    fields = ('date', 'status', 'description')
-    # ordering = ('date',)
-    # classes = ('collapse',)
+from django.forms.models import BaseInlineFormSet
+from django import forms
 
 class ClientRelatedFilter(admin.SimpleListFilter):
     title = _('Cliente')
@@ -46,14 +40,37 @@ class ServiceRelatedFilter(admin.SimpleListFilter):
             return queryset.filter(id_service__id=self.value())
         return queryset
 
+# Sempre indica que o formulário foi alterado, permitindo salvar um registro sem data e descrição preenchidas
+class ForceSaveForm(forms.ModelForm):
+    class Meta:
+        model = Session
+        fields = ['date', 'status', 'description']
+
+    def has_changed(self):
+        return True
+
+class SessionInline(TabularInline):
+    model = Session
+    tab = True
+    form = ForceSaveForm
+    extra = 0
+    fields = ('date', 'status', 'description')
+    # ordering = ('date',)
+    # classes = ('collapse',)
+
 @admin.register(Package)
 class CustomPackageAdmin(ModelAdmin):
 
-    def count_sessions(self, obj):
-        return obj.session_set.count()
-    count_sessions.short_description = 'Sessões'
+    def count_no_fins_sessions(self, obj):
+        return obj.session_set.exclude(status=3).count()
+    count_no_fins_sessions.short_description = _('Sessões não concluídas')
 
-    list_display = ('id_client', 'id_professional', 'id_service', 'value', 'count_sessions', 'closed')
+    def count_fins_sessions(self, obj):
+        all_sessions = obj.session_set.count()
+        return all_sessions-self.count_no_fins_sessions(obj)
+    count_fins_sessions.short_description = _('Sessões concluídas')
+
+    list_display = ('id_client', 'id_professional', 'id_service', 'value', 'count_fins_sessions', 'count_no_fins_sessions', 'closed')
     search_fields = ('id_client__name', 'id_service__name')
     ordering = ('closed',)
     inlines = [SessionInline]
@@ -83,7 +100,7 @@ class CustomPackageAdmin(ModelAdmin):
     # Se o usuário não for superusuário, removemos 'id_professional' de list_display
     def get_list_display(self, request):
         if not request.user.is_superuser:
-            return ('id_client', 'id_service', 'value', 'count_sessions', 'closed')
+            return ('id_client', 'id_service', 'value', 'count_fins_sessions', 'count_no_fins_sessions', 'closed')
         return super().get_list_display(request)
     
     # Adiciona filtro de listagem por 'id_professional' caso o usuário seja superusuário

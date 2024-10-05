@@ -1,15 +1,15 @@
 from django.db import models
+from django.db.models import F, OrderBy
 from django.utils.translation import gettext_lazy as _
 from schedule.models import Package, Service
 from django.utils import timezone
 from person.models import Professional, Client
-from django.utils import timezone
 
 class Session(models.Model):
-    date = models.DateTimeField(_("Data"), blank=False)
-    description = models.TextField(_("Descrição"), blank=True)
+    date = models.DateTimeField(_("Data"), blank=True, null=True)
+    description = models.TextField(_("Descrição"), blank=True, null=True)
     LIST_STATUS = ( ('1', 'Agendado'), ('2', 'Em andamento'), ('3', 'Concluído'), ('4', 'Cancelado') )
-    status = models.CharField(_("Status"), max_length=1, choices=LIST_STATUS, default='2', blank=False)
+    status = models.CharField(_("Status"), max_length=1, choices=LIST_STATUS, default='1', blank=False)
     id_package = models.ForeignKey(
         'schedule.Package'
         , on_delete=models.CASCADE
@@ -24,12 +24,18 @@ class Session(models.Model):
     class Meta:
         verbose_name = 'Sessão'
         verbose_name_plural = 'Sessões'
-        ordering = ('date',)
-
+        ordering = [OrderBy(F('date'), nulls_last=True)]
+    
     def __str__(self):
-        local_date = timezone.localtime(self.date)  # Converte para o fuso horário local
-        format_date = local_date.strftime('%d/%m/%Y %H:%M')
-        return f'Sessão do dia {format_date}'
+        sessions_in_package = Session.objects.filter(id_package=self.id_package).order_by(OrderBy(F('date'), nulls_last=True))
+
+        # Encontra a posição (índice) da sessão atual dentro dessa lista
+        session_position = list(sessions_in_package).index(self) + 1
+
+        local_date = timezone.localtime(self.date) if self.date else None  # Verifica se a data existe
+        format_date = local_date.strftime('%d/%m/%Y %H:%M') if local_date else "Sem data definida"
+
+        return f'{session_position}ª Sessão - {format_date}'
     
     def get_scheduled_sessions():
         scheduled_sessions = Session.objects.filter(status='1').order_by('date')
