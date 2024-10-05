@@ -5,9 +5,9 @@ from django.http import request
 from person.models.professional import Professional
 
 class Client(models.Model):
-    name = models.CharField(max_length=200, verbose_name='Nome')
+    name = models.CharField(max_length=300, verbose_name='Nome')
     email = models.EmailField(max_length=100, verbose_name='E-mail', null=True, blank=True)
-    cpf = models.CharField(max_length=11, verbose_name='CPF', null=True, blank=True)
+    cpf = models.CharField(max_length=20, verbose_name='CPF', null=True, blank=True)
     phone = models.CharField(max_length=20, verbose_name='Telefone', null=True, blank=True)
     birth_date = models.DateField(verbose_name='Data de Nascimento', null=True, blank=True)
     # photograph = models.ImageField(_("photograph"), upload_to="photos/")

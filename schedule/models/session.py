@@ -27,10 +27,18 @@ class Session(models.Model):
         ordering = [OrderBy(F('date'), nulls_last=True)]
     
     def __str__(self):
+        if not self.pk:
+            return "Sessão (Não salva ou deletada)"
+
+        # Obtém todas as sessões relacionadas ao pacote, ordenadas por data
         sessions_in_package = Session.objects.filter(id_package=self.id_package).order_by(OrderBy(F('date'), nulls_last=True))
 
-        # Encontra a posição (índice) da sessão atual dentro dessa lista
-        session_position = list(sessions_in_package).index(self) + 1
+        try:
+            # Encontra a posição (índice) da sessão atual dentro dessa lista
+            session_position = list(sessions_in_package).index(self) + 1
+        except ValueError:
+            # Caso a sessão não esteja mais na lista (provavelmente foi deletada)
+            return "Sessão (Deletada)"
 
         local_date = timezone.localtime(self.date) if self.date else None  # Verifica se a data existe
         format_date = local_date.strftime('%d/%m/%Y %H:%M') if local_date else "Sem data definida"
@@ -59,7 +67,7 @@ class Session(models.Model):
         next_sessions = Session.objects.filter(
             id_package__id_professional=professional,
             status='1'
-        ).order_by('date')
+        ).exclude(date=None).order_by('date')
 
         for session in next_sessions:
             session.package = Package.objects.get(id=session.id_package.id)

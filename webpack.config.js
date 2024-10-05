@@ -81,8 +81,8 @@ module.exports = (env, argv) => {
     createConfig(
       'admin_interface',
       [
-        './assets/admin_interface/js/_main.js', // Arquivo de entrada do JS
-        './assets/admin_interface/scss/_main.scss' // Arquivo de entrada do SCSS
+        './static/admin_interface/js/_main.js', // Arquivo de entrada do JS
+        './static/admin_interface/scss/_main.scss' // Arquivo de entrada do SCSS
       ],
       'admin_interface', // Caminho de saída
       isProduction // Passa a variável isProduction para a função
@@ -92,8 +92,8 @@ module.exports = (env, argv) => {
     createConfig(
       'website',
       [
-        './assets/website/js/_main.js', // Arquivo de entrada do JS
-        './assets/website/scss/_main.scss' // Arquivo de entrada do SCSS
+        './static/website/js/_main.js', // Arquivo de entrada do JS
+        './static/website/scss/_main.scss' // Arquivo de entrada do SCSS
       ],
       'website', // Caminho de saída
       isProduction // Passa a variável isProduction para a função

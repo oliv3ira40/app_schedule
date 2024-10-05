@@ -22,7 +22,7 @@ class Treatment(models.Model):
         , verbose_name='Serviço'
     )
 
-    value = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Valor', null=True, blank=True)    
+    value = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Valor', null=True, blank=True)
     date = models.DateTimeField(verbose_name='Data do atendimento', null=True, blank=True)
     LIST_STATUS = ( ('1', 'Agendado'), ('2', 'Concluído'), ('3', 'Cancelado') )
     status = models.CharField(_("Status"), max_length=1, choices=LIST_STATUS, default='1', blank=False)

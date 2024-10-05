@@ -92,4 +92,4 @@ class CustomClientAdmin(ModelAdmin):
         #         # Tratar o caso onde não existe uma configuração de cupom
         #         self.message_user(request, "Configuração de cupom de indicação não encontrada para o profissional.", level="warning")
         
-        # super().save_model(request, obj, form, change)
+        super().save_model(request, obj, form, change)
