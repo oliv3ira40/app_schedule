@@ -44,8 +44,17 @@ DEBUG = strtobool(os.getenv('DEBUG', 'False'))
 ALLOWED_HOSTS = ['127.0.0.1', 'flexibook.com.br', 'www.flexibook.com.br']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Application definition
+# Para permitir cookies seguros e compatibilidade com proxies
+CSRF_TRUSTED_ORIGINS = ['https://flexibook.com.br']
 
+# Se você estiver usando SSL
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# Para o uso de proxies reversos como Nginx ou Cloudflare
+USE_X_FORWARDED_HOST = True
+
+# Application definition
 INSTALLED_APPS = [
     # 'jazzmin',
 
