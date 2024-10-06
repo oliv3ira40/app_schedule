@@ -38,7 +38,7 @@ if production:
     sentry_sdk.init(
         dsn="https://74a13cc1100353ca54fa4319d88967ec@o4508072935292928.ingest.us.sentry.io/4508072939880448",
         traces_sample_rate=1.0,
-        environment="dev",
+        environment="prod",
         profiles_sample_rate=1.0,
     )
 
