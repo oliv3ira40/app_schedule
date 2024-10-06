@@ -23,11 +23,8 @@ if environment == 'production':
     import sentry_sdk
     sentry_sdk.init(
         dsn="https://74a13cc1100353ca54fa4319d88967ec@o4508072935292928.ingest.us.sentry.io/4508072939880448",
-        # Defina traces_sample_rate para 1.0 para capturar 100% das transações para rastreamento.
         traces_sample_rate=1.0,
         environment="production",
-        # Defina profiles_sample_rate para 1.0 para perfilar 100% das transações amostradas.
-        # Recomendamos ajustar este valor em produção.
         profiles_sample_rate=1.0,
     )
 
@@ -44,7 +41,7 @@ load_dotenv(dotenv_path)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = strtobool(os.getenv('DEBUG', 'False'))
 
-ALLOWED_HOSTS = ['localhost', '147.79.82.119', '127.0.0.1', 'flexibook.com.br', 'www.flexibook.com.br']
+ALLOWED_HOSTS = ['127.0.0.1', 'flexibook.com.br', 'www.flexibook.com.br']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
