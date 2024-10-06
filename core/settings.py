@@ -18,16 +18,6 @@ from distutils.util import strtobool
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-environment = os.getenv('ENVIRONMENT', 'development')
-if environment == 'production':
-    import sentry_sdk
-    sentry_sdk.init(
-        dsn="https://74a13cc1100353ca54fa4319d88967ec@o4508072935292928.ingest.us.sentry.io/4508072939880448",
-        traces_sample_rate=1.0,
-        environment="production",
-        profiles_sample_rate=1.0,
-    )
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -40,6 +30,17 @@ load_dotenv(dotenv_path)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = strtobool(os.getenv('DEBUG', 'False'))
+
+# Ativa a Sentry apenas em produção
+environment = os.getenv('ENVIRONMENT', 'development')
+if environment == 'production':
+    import sentry_sdk
+    sentry_sdk.init(
+        dsn="https://74a13cc1100353ca54fa4319d88967ec@o4508072935292928.ingest.us.sentry.io/4508072939880448",
+        traces_sample_rate=1.0,
+        environment="production",
+        profiles_sample_rate=1.0,
+    )
 
 ALLOWED_HOSTS = ['127.0.0.1', 'flexibook.com.br', 'www.flexibook.com.br']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
