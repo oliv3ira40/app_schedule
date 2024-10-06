@@ -16,6 +16,16 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# import sentry_sdk
+# sentry_sdk.init(
+#     dsn="https://74a13cc1100353ca54fa4319d88967ec@o4508072935292928.ingest.us.sentry.io/4508072939880448",
+#     # Defina traces_sample_rate para 1.0 para capturar 100% das transações para rastreamento.
+#     traces_sample_rate=0,
+#     # environment="production",
+#     # Defina profiles_sample_rate para 1.0 para perfilar 100% das transações amostradas.
+#     # Recomendamos ajustar este valor em produção.
+#     profiles_sample_rate=0,
+# )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
