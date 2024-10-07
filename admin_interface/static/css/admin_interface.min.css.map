@@ -1,1 +1,1 @@
-{"version":3,"file":"static/css/admin_interface.min.css","mappings":";;qIAKI,4BACI,YAJR","sources":["webpack://config-webpack/./static/admin_interface/scss/_main.scss"],"names":[],"sourceRoot":""}
+{"version":3,"file":"css/admin_interface.min.css","mappings":";;yHAKI,4BACI,YAJR","sources":["webpack://config-gulp/./static/src/scss/_main.scss"],"names":[],"sourceRoot":""}

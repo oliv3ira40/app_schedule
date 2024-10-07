@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]>
-<!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
 <head>
 
 	<!-- Basic Page Needs
@@ -30,17 +30,15 @@
 <body class="">
 
 	<!-- <div id="royal_preloader"></div> -->
-		
 	<!-- Nav and Logo
 	================================================== -->
 
 		<header class="cd-header">
-			
 			<div class="container menu-con">
 				<div class="twelve columns">
 					<div class="logo-wrap">
 						<a href="index.html">
-                            <img src="{% static 'images/logo.png' %}" alt="logo" />
+                            <img src="{% static 'src/images/logo.png' %}" alt="logo" />
                         </a>
 					</div>
 					<a class="cd-primary-nav-trigger" href="#0">
@@ -231,12 +229,8 @@
 			</div>
 		</div>
 	</div>
-		
-    <style>
-        .scroll-to-top {background-image: url("{% static 'images/up-arrow.png' %}");}
-      </style>
 	<div class="scroll-to-top tipped" data-title="<em>Voltar ao topo<em>" data-tipper-options='{"direction":"bottom","follow":"true","margin":20}'></div>
-    <script type="text/javascript" src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'libs/jquery/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/website.min.js' %}"></script>
 </body>
 </html>

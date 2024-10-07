@@ -57,8 +57,6 @@ USE_X_FORWARDED_HOST = True
 
 # Application definition
 INSTALLED_APPS = [
-    # 'jazzmin',
-
     "admin_interface",
     "unfold",  # before django.contrib.admin
     "unfold.contrib.filters",  # optional, if special filters are needed
@@ -157,104 +155,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# JAZZMIN_SETTINGS = {
-#     "show_ui_builder": True,
-#     'changeform_format_overrides': {
-#         'entity.Workday': 'single'
-#     },
-#     # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
-#     "icons": {
-#         "auth": "fas fa-users-cog",
-#         "auth.user": "fas fa-user",
-#         "auth.Group": "fas fa-users",
-#         "entity.Entity": "fas fa-list",
-#         "entity.Person": "fas fa-list",
-#         "entity.ServiceProvided": "fas fa-list",
-#         "entity.Workday": "fas fa-list",
-#         "entity.TypeEntity": "fas fa-list",
-#         "entity.Schedule": "fas fa-list",
-#         "entity.DayOfWeek": "fas fa-list",
-#     },
-# }
-
-# JAZZMIN_UI_TWEAKS = {
-#     "navbar_small_text": False,
-#     "footer_small_text": False,
-#     "body_small_text": True,
-#     "brand_small_text": False,
-#     "brand_colour": "navbar-white",
-#     "accent": "accent-navy",
-#     "navbar": "navbar-white navbar-light",
-#     "no_navbar_border": False,
-#     "navbar_fixed": False,
-#     "layout_boxed": False,
-#     "footer_fixed": False,
-#     "sidebar_fixed": True,
-#     "sidebar": "sidebar-light-navy",
-#     "sidebar_nav_small_text": False,
-#     "sidebar_disable_expand": False,
-#     "sidebar_nav_child_indent": False,
-#     "sidebar_nav_compact_style": True,
-#     "sidebar_nav_legacy_style": False,
-#     "sidebar_nav_flat_style": False,
-#     "theme": "minty",
-#     # "theme": "materia",
-#     # "theme": "sandstone",
-#     "dark_mode_theme": None,
-#     "button_classes": {
-#         "primary": "btn-outline-primary",
-#         "secondary": "btn-outline-secondary",
-#         "info": "btn-outline-info",
-#         "warning": "btn-outline-warning",
-#         "danger": "btn-outline-danger",
-#         "success": "btn-outline-success"
-#     },
-#     "actions_sticky_top": False
-# }
-
-# JAZZMIN_UI_TWEAKS = {
-#     "navbar_small_text": False,
-#     "footer_small_text": False,
-#     "body_small_text": True,
-#     "brand_small_text": False,
-#     "brand_colour": "navbar-dark",
-#     "accent": "accent-info",
-#     "navbar": "navbar-dark",
-#     "no_navbar_border": False,
-#     "navbar_fixed": False,
-#     "layout_boxed": False,
-#     "footer_fixed": False,
-#     "sidebar_fixed": True,
-#     "sidebar": "sidebar-dark-info",
-#     "sidebar_nav_small_text": False,
-#     "sidebar_disable_expand": False,
-#     "sidebar_nav_child_indent": False,
-#     "sidebar_nav_compact_style": True,
-#     "sidebar_nav_legacy_style": False,
-#     "sidebar_nav_flat_style": False,
-#     "theme": "solar",
-#     "dark_mode_theme": None,
-#     "button_classes": {
-#         "primary": "btn-primary",
-#         "secondary": "btn-secondary",
-#         "info": "btn-outline-info",
-#         "warning": "btn-outline-warning",
-#         "danger": "btn-outline-danger",
-#         "success": "btn-outline-success"
-#     },
-#     "actions_sticky_top": False
-# }
 
 # Django unfold settings
 from admin_interface.theme_settings import *

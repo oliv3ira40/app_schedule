@@ -1680,7 +1680,7 @@ figure.vimeo a img, figure.youtube a img {
 	text-align:center;
 	background-repeat:no-repeat;
 	background-position:center center;
-	// background-image:url('../images/line-nav.png');
+	background-image:url('../images/line-nav.png');
 	background-size:35px 120px;
 }
 .project-nav-wrap .left-nav {
@@ -2763,6 +2763,7 @@ figure.vimeo a img, figure.youtube a img {
 	height: 25px;
 	display: none;
 	z-index: 99;
+	background-image: url('../images/up-arrow.png');
 	background-position:center center;
 	background-repeat: no-repeat;
 	background-size:25px 25px;
