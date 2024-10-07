@@ -11,8 +11,8 @@ UNFOLD = {
         lambda request: static("css/admin_interface.min.css"),
     ],
     "SCRIPTS": [
-        lambda request: static("../static/vendor/jquery/jquery.min.js"),
-        lambda request: static("../static/vendor/masks/jquery.mask.min.js"),
+        lambda request: static("../static/libs/jquery/jquery.min.js"),
+        lambda request: static("../static/libs/masks/jquery.mask.min.js"),
         lambda request: static("js/admin_interface.min.js"),
     ],
 }
