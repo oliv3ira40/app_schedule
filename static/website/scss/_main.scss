@@ -1,3 +1,7 @@
 // Os arquivos que serão minificados devem ser importados aqui
 
-// @import 'seu-arquivo.scss';
+@import 'site/base';
+@import 'site/skeleton';
+@import 'site/color';
+@import 'site/layout';
+@import 'site/retina';

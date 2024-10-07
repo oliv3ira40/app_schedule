@@ -1,74 +1,242 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+<!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
 
-        .container {
-            text-align: center;
-        }
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>leto</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-        h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+	
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/website.min.css' %}"/>
 
-        img {
-            margin-bottom: 20px;
-        }
-
-        a {
-            display: none;
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        a:hover {
-            animation: shake 0.3s;
-            background-color: #0056b3;
-        }
-
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-3px); }
-            50% { transform: translateX(3px); }
-            75% { transform: translateX(-3px); }
-            100% { transform: translateX(0); }
-        }
-    </style>
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+	
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
 </head>
-<body>
-    <div class="container">
-        <h3 id="message">kkk Nem tem nada aqui</h3>
-        <img id="gif" src="https://media.tenor.com/07m1QOxv-dIAAAAM/m%C3%A1quina-produtiva075.gif" alt="Máquina produtiva" />
-        <a id="link" href="admin">clica aqui ó</a>
-    </div>
+<body class="">
 
-    <script>
-        setTimeout(function() {
-            // Troca a mensagem após 2 segundos
-            document.getElementById('message').textContent = 'Zuera kkk';
+	<!-- <div id="royal_preloader"></div> -->
+		
+	<!-- Nav and Logo
+	================================================== -->
 
-            // Remove o GIF e a mensagem após 2 segundos
-            document.getElementById('gif').style.display = 'none';
+		<header class="cd-header">
+			
+			<div class="container menu-con">
+				<div class="twelve columns">
+					<div class="logo-wrap">
+						<a href="index.html">
+                            <img src="{% static 'images/logo.png' %}" alt="logo" />
+                        </a>
+					</div>
+					<a class="cd-primary-nav-trigger" href="#0">
+						<span class="cd-menu-text"></span><span class="cd-menu-icon"></span>
+					</a>
+				</div>
+			</div>		
+				
+		</header>
 
-            // Exibe o link
-            document.getElementById('link').style.display = 'inline-block';
-        }, 4000);
-    </script>
+		<nav>
+			<div class="cd-primary-nav">
+			
+				<div class="cd-scndr-nav">
+					<ul class="cd-accordion-menu animated">
+						<li class="has-children">
+							<input type="checkbox" name ="group-1" id="group-1">
+							<label for="group-1"><span>Works</span></label>
+
+							<ul>
+								<li><a href="index.html">Text</a></li>
+								<li><a href="index1.html">Slider</a></li>
+								<li><a href="index2.html">Video</a></li>
+								<li><a href="index3.html">Parallax</a></li>
+								<li><a href="index4.html">Full-Width</a></li>
+								<li><a href="index5.html">No-Margin</a></li>
+								<li><a href="project.html">Project Page</a></li>
+							</ul>
+						</li>
+
+						<li class="has-children">
+							<input type="checkbox" name ="group-2" id="group-2">
+							<label for="group-2"><a href="about.html">Studio</a></label>
+						</li>
+
+						<li class="has-children">
+							<input type="checkbox" name ="group-4" id="group-4">
+							<label for="group-4"><a class="cur-nav-color" href="blog.html">Journal</a></label>
+						</li>
+
+						<li class="has-children">
+							<input type="checkbox" name ="group-5" id="group-5">
+							<label for="group-5"><a href="contact.html">Contact</a></label>
+						</li>
+					</ul> <!-- cd-accordion-menu -->
+					
+				</div>
+		
+				<ul class="nav-social">
+					<li>
+						<a class="twitter" href="#">Tw</a>
+					</li>
+					<li>
+						<a class="facebook" href="#">Fb</a>
+					</li>
+					<li>
+						<a class="google" href="#">G+</a>
+					</li>
+					<li>
+						<a class="envato" href="#">En</a>
+					</li>
+				</ul>
+								
+			</div>
+		</nav>
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<div class="section padding-title-top padding-title-bottom background-white">
+		<div class="container">
+			<div class="twelve columns">
+				<div class="page-title parallax-fade-top">
+					<h2>Journal.</h2>
+					<div class="subtitle">Latest news.</div>
+					<p>you inspired me</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="section padding-bottom background-white">
+		<div class="container">
+			<form name="ajax-form" id="ajax-form" action="mail-it.php" method="post">
+				<div class="three columns offset-by-three ">
+					<label for="name"> 
+						<span class="error" id="err-name">please enter name</span>
+					</label>
+					<input name="name" id="name" type="text"   placeholder="Your Name: *"/>
+				</div>
+				<div class="three columns">
+					<label for="email"> 
+						<span class="error" id="err-email">please enter e-mail</span>
+						<span class="error" id="err-emailvld">e-mail is not a valid format</span>
+					</label>
+					<input name="email" id="email" type="text"  placeholder="E-Mail: *"/>
+				</div>
+				<div class="clear"></div>
+				<div class="six columns remove-top offset-by-three ">
+					<label for="message"></label>
+					<textarea name="message" id="message" placeholder="Tell Us Everything"></textarea>
+				</div>
+				<div class="clear"></div>
+				<div class="six columns remove-top offset-by-three ">
+					<div id="button-con">
+                        <button class="send_message button-effect button--moema button--text-thick button--text-upper button--size-s" id="send" data-lang="en">submit</button>
+                    </div>
+				</div>
+				<div class="clear"></div>	
+				<div class="error" id="err-form">There was a problem validating the form please check!</div>
+				<div class="error" id="err-timedout">The connection to the server timed out!</div>
+				<div class="error" id="err-state"></div>
+			</form>	
+							
+			<div class="clear"></div>
+			<div id="ajaxsuccess">Successfully sent!!</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div class="section background-white">
+		<div class="container">
+			<div class="four columns">
+				<a href="post.html" class="tipped" data-title="<em>24.aug</em><br><strong>by Maria</strong>" data-tipper-options='{"direction":"bottom","follow":"true","margin":5}'>
+					<div class="blog-box">
+						<!-- <img src="images/blog/1.jpg" alt="image" /> -->
+						<h6>We want to share with you our mood.</h6>
+						<p>Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor.</p>
+						<div class="more">more</div>
+					</div>
+				</a>
+			</div>
+			<div class="four columns">
+				<a href="post.html" class="tipped" data-title="<em>22.aug</em><br><strong>by Anna</strong>" data-tipper-options='{"direction":"bottom","follow":"true","margin":5}'>
+					<div class="blog-box">
+						<!-- <img src="images/blog/2.jpg" alt="image" /> -->
+						<h6>Sleep, code, eat, travel. Repeat.</h6>
+						<p>Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor.</p>
+						<div class="more">more</div>
+					</div>
+				</a>
+			</div>
+			<div class="four columns">
+				<a href="post.html" class="tipped" data-title="<em>20.aug</em><br><strong>by Frank</strong>" data-tipper-options='{"direction":"bottom","follow":"true","margin":5}'>
+					<div class="blog-box">
+						<!-- <img src="images/blog/3.jpg" alt="image" /> -->
+						<h6>Don’t get lost.</h6>
+						<p>Proin fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor.</p>
+						<div class="more">more</div>
+					</div>
+				</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+    <div class="section padding-top-bottom background-white">
+		<div class="container">
+			<div class="twelve columns">
+				<div class="project-nav-wrap">
+					<a href="#"><div class="left-nav" data-scroll-reveal="enter left move 60px over 0.9s after 0.1s">prev<div class="text-on-hover">Ceramic Wood</div></div></a>
+					<a href="#"><div class="right-nav" data-scroll-reveal="enter right move 60px over 0.9s after 0.1s">next<div class="text-on-hover">Middletown Cafe</div></div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section padding-top-bottom background-white">
+		<div class="container">
+			<div class="six columns footer" data-scroll-reveal="enter bottom move 60px over 0.5s after 0.1s">
+				<p>Call us at <a href="#">+37 237 325 563</a><br>or say hello at <a href="#">people@leto.com</a></p>
+			</div>
+			<div class="six columns" data-scroll-reveal="enter bottom move 60px over 0.5s after 0.1s">
+				<ul class="footer-social">
+					<li>
+						<a class="twitter" href="#">Tw</a>
+					</li>
+					<li>
+						<a class="facebook" href="#">Fb</a>
+					</li>
+					<li>
+						<a class="google" href="#">G+</a>
+					</li>
+					<li>
+						<a class="vimeo" href="#">Vm</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		
+    <style>
+        .scroll-to-top {background-image: url("{% static 'images/up-arrow.png' %}");}
+      </style>
+	<div class="scroll-to-top tipped" data-title="<em>Voltar ao topo<em>" data-tipper-options='{"direction":"bottom","follow":"true","margin":20}'></div>
+    <script type="text/javascript" src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/website.min.js' %}"></script>
 </body>
 </html>
