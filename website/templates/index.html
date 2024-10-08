@@ -112,9 +112,8 @@
 		<div class="container">
 			<div class="twelve columns">
 				<div class="page-title parallax-fade-top">
-					<h2>Journal.</h2>
-					<div class="subtitle">Latest news.</div>
-					<p>you inspired me</p>
+					<h2>Meus agendementos</h2>
+					<div class="subtitle">Busque seus agendamentos e serviços adquiridos preenchendo os campos abaixo.</div>
 				</div>
 			</div>
 		</div>
@@ -122,29 +121,26 @@
 
     <div class="section padding-bottom background-white">
 		<div class="container">
-			<form name="ajax-form" id="ajax-form" action="mail-it.php" method="post">
+			<form name="ajax-form" id="ajax-form" class="my-appointments" action="mail-it.php" method="post">
 				<div class="three columns offset-by-three ">
-					<label for="name"> 
+					<label for="cpf"> 
 						<span class="error" id="err-name">please enter name</span>
 					</label>
-					<input name="name" id="name" type="text"   placeholder="Your Name: *"/>
+					<input name="cpf" id="cpf" type="text"   placeholder="CPF: *"/>
 				</div>
 				<div class="three columns">
-					<label for="email"> 
+					<label for="phone"> 
 						<span class="error" id="err-email">please enter e-mail</span>
 						<span class="error" id="err-emailvld">e-mail is not a valid format</span>
 					</label>
-					<input name="email" id="email" type="text"  placeholder="E-Mail: *"/>
-				</div>
-				<div class="clear"></div>
-				<div class="six columns remove-top offset-by-three ">
-					<label for="message"></label>
-					<textarea name="message" id="message" placeholder="Tell Us Everything"></textarea>
+					<input name="phone" id="phone" type="text"  placeholder="Telefone: *"/>
 				</div>
 				<div class="clear"></div>
 				<div class="six columns remove-top offset-by-three ">
 					<div id="button-con">
-                        <button class="send_message button-effect button--moema button--text-thick button--text-upper button--size-s" id="send" data-lang="en">submit</button>
+                        <button class="send_message button-effect button--moema button--text-thick button--text-upper button--size-s" id="send">
+							Procurar
+						</button>
                     </div>
 				</div>
 				<div class="clear"></div>	
