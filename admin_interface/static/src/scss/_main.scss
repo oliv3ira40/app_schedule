@@ -7,3 +7,22 @@
         height: 100px;
     }
 }
+
+// Ajusta o tamanho do campo de permissão da edição dos grupos
+#group_form {
+
+    .field-permissions {
+        .selector {
+            max-width: 70%;
+            height: 400px;
+        }
+    }
+}
+
+// Ajusta o tamanho do campo de permissão da edição dos usuários
+.field-groups, .field-user_permissions {
+    .selector {
+        max-width: 60%;
+        height: 300px;
+    }
+}

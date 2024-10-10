@@ -1,2 +1,2 @@
 from .discount_coupon import DiscountCouponAdmin
-# from .indication_coupon_configuration import IndicationCouponConfigurationAdmin
+from .indication_coupon_configuration import IndicationCouponConfigurationAdmin

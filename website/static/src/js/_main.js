@@ -5,3 +5,5 @@ import './site/tipper.js';
 import './site/scrollReveal.js';
 import './site/fitvids.js';
 import './site/custom-blog.js';
+
+import './masks/my-appointments.js';

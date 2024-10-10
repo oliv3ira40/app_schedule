@@ -23,7 +23,7 @@ def trigger_error(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='home'),
+    path('', index, name='home-site'),
 
     path('sentry-debug/', trigger_error),
 ]

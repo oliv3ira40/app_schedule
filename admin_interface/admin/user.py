@@ -19,6 +19,7 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
 
     list_display = ('is_active', 'first_name', 'last_name', 'username', 'email', 'is_staff', 'is_superuser', 'group_name')
     list_filter = ('is_active', 'is_staff', 'is_superuser', 'groups')
+    list_editable = ('is_active',)
     search_fields = ('first_name', 'last_name', 'email')
     ordering = ('is_active', 'first_name')
     list_display_links = ('first_name', 'last_name')
