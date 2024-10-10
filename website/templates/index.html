@@ -37,7 +37,7 @@
 			<div class="container menu-con">
 				<div class="twelve columns">
 					<div class="logo-wrap">
-						<a href="index.html">
+						<a href="{% url 'home-site' %}">
                             <img src="{% static 'src/images/logo.png' %}" alt="logo" />
                         </a>
 					</div>
@@ -45,33 +45,27 @@
 						<span class="cd-menu-text"></span><span class="cd-menu-icon"></span>
 					</a>
 				</div>
-			</div>		
-				
+			</div>
 		</header>
-
 		<nav>
 			<div class="cd-primary-nav">
 			
 				<div class="cd-scndr-nav">
 					<ul class="cd-accordion-menu animated">
 						<li class="has-children">
+							<input type="checkbox" name ="group-2" id="group-2">
+							<label for="group-2"><a href="/admin">Admin</a></label>
+						</li>
+
+						<li class="has-children">
 							<input type="checkbox" name ="group-1" id="group-1">
 							<label for="group-1"><span>Works</span></label>
 
 							<ul>
-								<li><a href="index.html">Text</a></li>
+								<li><a href="/admin">Admin</a></li>
 								<li><a href="index1.html">Slider</a></li>
 								<li><a href="index2.html">Video</a></li>
-								<li><a href="index3.html">Parallax</a></li>
-								<li><a href="index4.html">Full-Width</a></li>
-								<li><a href="index5.html">No-Margin</a></li>
-								<li><a href="project.html">Project Page</a></li>
 							</ul>
-						</li>
-
-						<li class="has-children">
-							<input type="checkbox" name ="group-2" id="group-2">
-							<label for="group-2"><a href="about.html">Studio</a></label>
 						</li>
 
 						<li class="has-children">
@@ -227,6 +221,7 @@
 	</div>
 	<div class="scroll-to-top tipped" data-title="<em>Voltar ao topo<em>" data-tipper-options='{"direction":"bottom","follow":"true","margin":20}'></div>
     <script type="text/javascript" src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libs/masks/jquery.mask.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/website.min.js' %}"></script>
 </body>
 </html>
