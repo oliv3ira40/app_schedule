@@ -28,7 +28,7 @@ class Package(models.Model):
 
     class Meta:
         verbose_name = 'Pacote'
-        verbose_name_plural = 'Lista de Pacotes'
+        verbose_name_plural = 'Pacotes de atendimentos'
         ordering = ('created_at',)
 
     def __str__(self):

@@ -3,6 +3,8 @@ from datetime import date, timedelta
 from django.utils import formats
 from django.http import request
 from person.models.professional import Professional
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 class Client(models.Model):
     name = models.CharField(max_length=300, verbose_name='Nome')
@@ -37,10 +39,19 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
+        constraints = [
+            models.UniqueConstraint(fields=['cpf', 'id_professional'], name='unique_cpf_by_professional'),
+            models.UniqueConstraint(fields=['email', 'id_professional'], name='unique_email_by_professional'),
+            models.UniqueConstraint(fields=['phone', 'id_professional'], name='unique_phone_by_professional')
+        ]
 
     # Retorna os próximos aniversariantes dentro de um período de dias
     def get_upcoming_birthdays(request):

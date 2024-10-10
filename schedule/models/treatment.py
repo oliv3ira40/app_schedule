@@ -32,7 +32,7 @@ class Treatment(models.Model):
     
     class Meta:
         verbose_name = 'Atendimento'
-        verbose_name_plural = 'Lista de Atendimentos'
+        verbose_name_plural = 'Atendimentos únicos'
         ordering = ('created_at',)
 
     def __str__(self):

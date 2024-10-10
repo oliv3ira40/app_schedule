@@ -4,15 +4,18 @@ from person.models import Client, Professional
 from finances.models import DiscountCoupon, IndicationCouponConfiguration
 from unfold.admin import ModelAdmin
 from django.core.exceptions import ValidationError
+from person.forms.client import ClientForm
 
 @admin.register(Client)
 class CustomClientAdmin(ModelAdmin):
     list_display = ('name', 'email', 'cpf', 'phone', 'birth_date', 'id_user', 'id_professional', 'id_indicator_by')
     search_fields = ('name', 'email', 'cpf', 'phone')
     ordering = ('name',)
+    form = ClientForm
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
+        form.request = request
 
         # Se o usuário não for superusuário, remover os campos 'id_professional' e 'id_user'
         if not request.user.is_superuser:
@@ -25,7 +28,6 @@ class CustomClientAdmin(ModelAdmin):
                 # Obtem o profissional atual
                 professional = Professional.objects.get(id_user=request.user)
                 
-                # O erro é por conta disso
                 # Filtrar os clientes do profissional atual
                 queryset = Client.objects.filter(id_professional=professional)
                 if obj:  # Se estiver editando, excluir o próprio cliente da lista de indicados
@@ -72,6 +74,8 @@ class CustomClientAdmin(ModelAdmin):
             professional = Professional.objects.filter(id_user=request.user).first()
             obj.id_professional = professional
 
+        super().save_model(request, obj, form, change)
+
         # # Verificar se 'id_indicator_by' e 'id_professional' estão preenchidos
         # if obj.id_indicator_by and obj.id_professional:
         #     # Tentar obter a configuração de cupom para o profissional
@@ -91,5 +95,3 @@ class CustomClientAdmin(ModelAdmin):
         #     except IndicationCouponConfiguration.DoesNotExist:
         #         # Tratar o caso onde não existe uma configuração de cupom
         #         self.message_user(request, "Configuração de cupom de indicação não encontrada para o profissional.", level="warning")
-        
-        super().save_model(request, obj, form, change)
